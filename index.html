@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Compras</title>
+</head>
+<body>
+
+    <div id="container">
+        
+    <h1>Lista de Compras📝</h1>
+    <div id="entrada">
+        <label for="item">Nome do item:</label>
+        <input type="text" id="item" placeholder="Digite o nome do item">
+
+        <label for="qtd">Quantidade:</label>
+        <input type="number" id="qtd">
+
+        <label for="categoria">Categoria:</label>
+        <select name="categoria" id="categoria">
+            <option value="">Selecione</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Limpeza">Limpeza</option>
+            <option value="Higiene">Higiene</option>
+        </select>
+
+        <button id="btn-add">Adicionar item</button>
+    </div>
+
+    <div id="filter">
+        <label for="filtro">Filtrar por categoria:</label>
+        <select name="filtro" id="filtro">
+            <option value="todas">Todas</option>
+            <option value="Alimentos">Alimentos</option>
+            <option value="Limpeza">Limpeza</option>
+            <option value="Higiene">Higiene</option>
+        </select>
+        <button id="btn-filter">Aplicar filtro</button>
+    </div>
+
+    <div id="lista">
+        <div id="lista-compras">
+        </div>
+
+        <div id="compras-concluidas">     
+        </div>
+    </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

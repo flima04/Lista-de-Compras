@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: rgb(185, 212, 212);
+    background-color: rgb(42, 41, 63);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    max-width:1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: Borel;
+    font-size: 3.5em;
+    margin-bottom: 0px;
+    
+}
+
+#entrada {
+    width: 100%;
+    background-color: rgb(185, 212, 212);
+    color: rgb(42, 41, 63);
+    font-weight: 600;
+    padding: 15px 40px;
+    border-radius: 100px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    border: 0px;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px 15px 5px 5px;
+}
+
+#qtd {
+    width: 50px;
+}
+
+#categoria, #filtro {
+    border: 0px;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 0px 15px 0px 5px;
+}
+
+button {
+    background-color: rgb(92, 86, 153);
+    color: white;
+    font-weight: 700;
+    border: 0px;
+    border-radius: 20px;
+    padding: 9px 20px;
+    margin: 0px 3px;
+}
+
+button:hover {
+    background-color: rgb(63, 56, 145);
+}
+
+#filter {
+    color: rgb(185, 212, 212);
+    font-weight: 600;
+    width: 100%;
+    border-radius: 40px;
+    margin: 50px 25px 0px 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+
+#lista {
+    color: rgb(185, 212, 212);
+    
+}
+
+#lista-compras {
+    display: none;
+    margin-bottom: 60px;
+}
+
+#lista-compras h2 {
+    margin-top: 0px;
+}
+
+#compras-concluidas{
+    display: none;
+}
+
+.card {
+    color: rgb(42, 41, 63);
+    border-radius: 20px;
+    width: 170px;
+    padding: 10px;
+    margin: 15px;
+    display: inline-table;
+    align-items: center;
+}
+
+.card h3 {
+    font-family: borel;
+    font-size: 1.1em;
+    margin: 5px 5px 0px 5px;
+    text-align: center;
+}
+
+.card p {
+    margin: 10px auto;
+}
+
+.card button {
+    font-weight: 100;
+    padding: 10px 10px;
+}
+
+#compras-concluidas .card {
+    filter: grayscale(50%) brightness(50%);  
+    /*box-shadow: 0px 0px 10px rgb(40, 255, 2);*/
+}
+
+#compras-concluidas button {
+    display: flex;
+    margin: auto;
+}
+
+.Alimentos {
+    background-color: rgb(230, 125, 90);
+}
+
+.Limpeza {
+    background-color: rgb(95, 134, 198);
+}
+
+.Higiene {
+    background-color: rgb(94, 187, 157);
+}
+
+.editing {
+    box-shadow: 0px 0px 20px rgb(198, 244, 255);
+}
