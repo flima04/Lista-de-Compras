@@ -1,3 +1,4 @@
+const entrada = document.getElementById("entrada")
 const itemInput = document.getElementById("item");
 const qtdInput = document.getElementById("qtd");
 const catgInput = document.getElementById("categoria");
@@ -11,7 +12,8 @@ let idEdicao = null;
 let filtro = "todas";
 
 // Carrega todos os items salvos no LS
-document.addEventListener('DOMContentLoaded', loadItems(), loadConcludedItems());
+document.addEventListener('DOMContentLoaded', loadItems); 
+document.addEventListener('DOMContentLoaded', loadConcludedItems);
 
 // Chama a função de add ou editar
 btnAdd.addEventListener("click", () => {
@@ -181,7 +183,10 @@ function addItemNoDom(item) {
     });
 
     btnDelete.addEventListener("click", () => {
-        deleteItem(item);
+        if (confirm("Deseja excluir este item?")){
+            deleteItem(item);
+        }
+        
     })
 }
 
@@ -207,6 +212,16 @@ function concludeItem(id) {
 function editItem(id) {
     const items = getItemsLocalStorage();
     const item = items.find(i => i.id === id);
+
+    window.scrollTo(0, 0)
+
+    
+    setTimeout(() => {
+        entrada.style.backgroundColor = "rgb(214, 142, 118)";
+        setTimeout(() => {
+            entrada.style.backgroundColor = "";
+        }, 300);
+    }, 130);
 
     const previousEditing = document.querySelector(".editing");
     if (previousEditing) {
