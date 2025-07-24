@@ -30,6 +30,7 @@ h1 {
 @media screen and (max-width:960px) {
     h1 {
         font-size: calc(1rem + 4.5vw);
+        margin-top: 40px;
     }
 
     h2 {
@@ -192,19 +193,19 @@ button:hover {
     }
 
     .card {
-        width: 120px;
+        width: 105px;
         justify-content: center;
-        font-size: 0.8rem;
+        padding: 5px;
+        font-size: 0.6rem;
         border-radius: 10px;
-
     }
 
     .card h3 {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .card p {
-        margin: 0px 0px 8px 0px;
+        margin: 0px 0px 5px 0px;
     }
 
     .card button {
