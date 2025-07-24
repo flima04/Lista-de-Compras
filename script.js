@@ -6,7 +6,11 @@ const btnAdd = document.getElementById("btn-add");
 const filterInput = document.getElementById("filtro");
 const btnFilter = document.getElementById("btn-filter")
 const listaCompras = document.getElementById("lista-compras");
+const tituloListaCompras = document.getElementById("titulo-lista-compras");
+const itensListaCompras = document.getElementById("itens-lista-compras");
 const comprasConcluidas = document.getElementById("compras-concluidas");
+const tituloComprasConcluidas = document.getElementById("titulo-compras-concluidas");
+const itensComprasConcluidas = document.getElementById("itens-compras-concluidas");
 
 let idEdicao = null;
 let filtro = "todas";
@@ -100,15 +104,17 @@ function saveItemsConcludedLocalStorage(concluded) {
 function loadItems() {
     const items = getItemsLocalStorage();
     if (!items.length){
-        listaCompras.innerHTML = "";
+        tituloListaCompras.innerHTML = "";
+        itensListaCompras.innerHTML = "";
         return;
     } else {
-        listaCompras.innerHTML = "<h2>Itens adicionados:</h2>"
+        tituloListaCompras.innerHTML = "<h2>Itens adicionados:</h2>"
+        itensListaCompras.innerHTML = "";
         if (filtro !== "todas") {
             const itemsFiltered = items.filter(i => i.category === filtro);
             itemsFiltered.forEach(item => addItemNoDom(item));
         } else {
-            listaCompras.innerHTML = "<h2>Itens adicionados:</h2>"
+            tituloListaCompras.innerHTML = "<h2>Itens adicionados:</h2>"
             items.forEach(item => addItemNoDom(item));
         }
     }
@@ -117,20 +123,19 @@ function loadItems() {
 // Carrega os items concluídos do LS e passa para a função que add no DOM
 function loadConcludedItems() {
     const concludeItems = getItemsConcludedLocalStorage();
-    console.log(concludeItems);
     if (!concludeItems.length) {
-        comprasConcluidas.innerHTML = "";
+        tituloComprasConcluidas.innerHTML = "";
+        itensComprasConcluidas.innerHTML = "";
         return;
     } else {
-        comprasConcluidas.innerHTML = "<h2>Itens concluídos:</h2>";
+        tituloComprasConcluidas.innerHTML = "<h2>Itens concluídos:</h2>";
+        itensComprasConcluidas.innerHTML = "";
 
         if (filtro != "todas") {
             const itemsConcludedFiltered = concludeItems.filter(i => i.category === filtro);
-            console.log(itemsConcludedFiltered);
             itemsConcludedFiltered.forEach(item => addItemNoDom(item));
         } else {
             concludeItems.forEach(item => addItemNoDom(item));
-            console.log("executei esse")
         }
         filtro = "todas";
     }
@@ -142,10 +147,11 @@ function addItemNoDom(item) {
     const title = document.createElement("h3");
     const amount = document.createElement("p");
     const category = document.createElement("p");
+    const btnContainer = document.createElement("div");
     const btnConclude = document.createElement("button");
     const btnEdit = document.createElement("button");
     const btnDelete = document.createElement("button");
-
+    
     title.textContent = item.name;
     amount.innerHTML = `<strong>Qtd:</strong> ${item.amount}`;
     category.innerHTML = `<strong>Catg:</strong> ${item.category}`;
@@ -155,23 +161,23 @@ function addItemNoDom(item) {
 
     card.classList.add("card", item.category);
     card.id = item.id;
+    btnContainer.id = "btn-container"
 
     if (item.status === "concluded") {
         card.appendChild(title);
         card.appendChild(amount);
         card.appendChild(category);
         card.appendChild(btnDelete);
-        comprasConcluidas.appendChild(card);
-        comprasConcluidas.style.display = "block";
+        itensComprasConcluidas.appendChild(card);
     } else {
         card.appendChild(title);
         card.appendChild(amount);
         card.appendChild(category);
-        card.appendChild(btnConclude);
-        card.appendChild(btnEdit);
-        card.appendChild(btnDelete);
-        listaCompras.appendChild(card);
-        listaCompras.style.display = "block";
+        btnContainer.appendChild(btnConclude);
+        btnContainer.appendChild(btnEdit);
+        btnContainer.appendChild(btnDelete);
+        card.appendChild(btnContainer);
+        itensListaCompras.appendChild(card);
     }
 
     btnConclude.addEventListener("click", () => {
